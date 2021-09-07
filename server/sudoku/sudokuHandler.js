@@ -18,7 +18,7 @@ const getBoard = async (req, res) => {
 
     res.status(200).json({
       status: 200,
-      data: data,
+      board: data.board,
       message: "Success",
     });
   } catch (err) {
