@@ -21,6 +21,8 @@ const getSummary = async (req, res) => {
 
     const data = await JSON.parse(raw);
 
+    console.log(data);
+
     res.status(200).json({
       status: 200,
       message: "Data Retrieved",
