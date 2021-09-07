@@ -1,6 +1,8 @@
 const express = require("express");
 const morgan = require("morgan");
 
+const { getSummary } = require("./yahoo/handlers");
+
 const PORT = 4000;
 
 express()
@@ -10,6 +12,8 @@ express()
   .use("/", express.static(__dirname + "/"))
 
   //.get("/api/param", callback)
+
+  .get("/api/yahoo/getSummary", getSummary)
 
   .get("*", (req, res) => {
     res.status(404).json({
