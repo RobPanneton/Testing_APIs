@@ -18,16 +18,6 @@ const getStockInfo = async (req, res) => {
 
   python.on("close", async (code) => {
     console.log(`child process close all stdio with code ${code}`);
-    // const data = JSON.parse(dataSet);
-    // dataSet = JSON.stringify(dataSet);
-    // dataSet = await dataSet.replace(/'/g, '"');
-    // data = await JSON.parse(dataSet);
-    dataSet = await dataSet.toString();
-    dataSet = await dataSet.replace(/'/g, '"');
-    dataSet = await dataSet.replace(/True/g, "true");
-    dataSet = await dataSet.replace(/False/g, "false");
-    dataSet = await dataSet.replace(/None/g, "null");
-    data = await JSON.parse(dataSet);
     res.send(dataSet);
   });
 };

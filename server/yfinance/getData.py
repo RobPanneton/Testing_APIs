@@ -3,4 +3,5 @@ import json
 
 
 msft = yf.Ticker("MSFT")
-print(msft.info)
+data_json = json.dumps(msft.info)
+print(data_json)
