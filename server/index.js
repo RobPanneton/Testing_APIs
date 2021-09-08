@@ -1,8 +1,8 @@
 const express = require("express");
 const morgan = require("morgan");
 
-const { getSummary } = require("./yahooFinance/handlers");
 const { getBoard } = require("./sudoku/sudokuHandler");
+const { getStockInfo } = require("./yfinance/handlers");
 
 const PORT = 4000;
 
@@ -14,7 +14,9 @@ express()
 
   //.get("/api/param", callback)
 
-  .get("/api/yahoo/getSummary", getSummary)
+  //   .get("/api/yahoo/getSummary", getSummary)
+
+  .get("/api/yfinance/getStockInfo", getStockInfo)
 
   .get("/api/sudoku/getBoard/:difficulty", getBoard)
 
