@@ -5,7 +5,8 @@ const port = 3000;
 app.get("/", (req, res) => {
   var dataToSend;
   // spawn new child process to call the python script
-  const python = spawn("python", ["script1.py"]);
+  // exercise 2 : add params to spawn method
+  const python = spawn("python", ["script1.py", "node.js", "python"]);
   // collect data from script
   python.stdout.on("data", function (data) {
     console.log("Pipe data from python script ...");
