@@ -19,6 +19,7 @@ app.get("/", (req, res) => {
     // send data to browser
     // res.send(largeDataSet.join(""));
     const data = JSON.parse(largeDataSet);
+    console.log(data);
     res.status(200).json({
       status: 200,
       message: "Success!",
