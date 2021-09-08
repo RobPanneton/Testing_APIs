@@ -4,15 +4,24 @@ const { spawn } = require("child_process");
 const getStockInfo = async (req, res) => {
   var dataSet = [];
 
-  const python = spawn("python", ["getter.py"]);
+  const python = spawn("python", ["./yfinance/getData.py"]);
 
   python.stdout.on("data", (data) => {
     console.log("Pipe data from python script ...");
-    dataSet.push(data);
+    // dataSet.push(data);
+    dataSet = data;
   });
 
-  python.on("close", (code) => {
-    console.log(`child process cloes all stdio with code ${code}`);
+  // python.stderr.on("data", (data) => {
+  //   console.error(`stderr: ${data}`);
+  // });
+
+  python.on("close", async (code) => {
+    console.log(`child process close all stdio with code ${code}`);
+    // const data = JSON.parse(dataSet);
+    // dataSet = JSON.stringify(dataSet);
+    // dataSet = await dataSet.replace(/'/g, '"');
+    // data = await JSON.parse(dataSet);
 
     res.send(dataSet);
   });
