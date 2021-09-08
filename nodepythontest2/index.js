@@ -18,7 +18,6 @@ app.get("/", (req, res) => {
     console.log(`child process close all stdio with code ${code}`);
     // send data to browser
     // res.send(largeDataSet.join(""));
-    console.log(JSON.parse(largeDataSet));
     const data = JSON.parse(largeDataSet);
     res.status(200).json({
       status: 200,
